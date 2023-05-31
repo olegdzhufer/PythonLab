@@ -33,22 +33,25 @@ if __name__ == "__main__":
 
     print("\nlist_comprehension")
 
-    print(chair_manager.list_comprehension())
+    print(chair_manager.get_increase_height())
 
     print("\nenumerate")
-    print(chair_manager.enumerate())
+    print(chair_manager.get_list_enumerated())
 
     print("\nzip")
-    print(chair_manager.zip())
+    print(chair_manager.get_zipping())
 
     print("\nCondition dictionary")
     print(chair_manager.get_all_any(100))
 
     print("\nget_dictionary")
 
-    chair_manager = CarChair(12, True, "saddd" , 123, "asd")
-    print(chair_manager.get_dict_comprehension(bool))
+    chair_manager1 = CarChair(12, True, "saddd" , 123, "asd")
+    print(chair_manager1.get_dict_comprehension(bool))
 
+    sm = SetManager(chair_manager)
+    print(len(sm))
 
-sm = SetManager(chair_manager)
-print(len(sm))
+    sm = SetManager(chair_manager)
+    for item in sm:
+        print(item)

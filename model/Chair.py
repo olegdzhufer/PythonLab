@@ -25,6 +25,7 @@ class Chair(ABC):
         self.material = material
         self.max_weight = max_weight
         self.owner = owner
+        self.design_chair_set = set()
 
 
     def __repr__(self):

@@ -2,36 +2,21 @@ from manager.chair_manager import ChairManager
 
 
 class SetManager:
-    manager_obj = ChairManager()
 
     def __init__(self, manager_obj):
-        self.values = []
         self.manager_obj = manager_obj
+        self.values = iter([item.design_chair_set for item in self.manager_obj])
 
-    values = [item.design_chair_set for item in manager_obj]
+    manager_obj = ChairManager()
 
     def __iter__(self):
         return iter(self.values)
 
     def __len__(self):
-        return sum(len(item.design_chair_set)
-                   for item in self.manager_obj)
+        return sum(len(item.design_chair_set) for item in self.manager_obj)
 
+    def __getitem__(self, item):
+        return self.manager_obj[item].design_chair_set
 
-        # lenght = 0
-        # for item in self.manager_obj:
-        #     lenght += len(item.design_chair_set)
-        # return lenght
-
-
-
-
-
-
-
-
-
-
-
-        
-        
+    def __next__(self):
+        return next(self.values)

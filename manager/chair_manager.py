@@ -20,6 +20,7 @@ class ChairManager:
         """
         self.chairs = []
         self.current_item = 0
+        self.design_chair_set = set()
 
     def find_chair_which_max_weight_more_than(self, kilo: int):
         """
@@ -68,21 +69,20 @@ class ChairManager:
         self.current_item += 1
         return item
 
-    def list_comprehension(self):
+    def get_increase_height(self):
         return list([chair.adjust_position(2) for chair in self.chairs])
 
-    def enumerate(self):
+    def get_list_enumerated(self):
         for i, j in enumerate(self.chairs):
             print("Index =>", i, "- value =>", j)
         return ""
 
-    def zip(self):
+    def get_zipping(self):
         records = [(f"Object: {chair}", f"-> result: {result}") for chair, result in
                    zip(self.chairs, self.list_comprehension())]
         return records
 
     def get_all_any(self, current_weght):
         dict = [chair.max_weight >= current_weght for chair in self.chairs]
-        return {"all":all(dict), "any":any(dict)}
-
+        return {"all": all(dict), "any": any(dict)}
 

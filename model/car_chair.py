@@ -3,7 +3,7 @@ from typing import Final
 from model.chair import Chair
 
 
-class CarChair(Chair,):
+class CarChair(Chair, ):
     """A class representing a car chair, inheriting from the Chair class.
 
     Attributes:
@@ -23,15 +23,14 @@ class CarChair(Chair,):
 """
     POSITION_OFFSET: Final[int] = 5
 
-    def __init__(self, length_to_wheel, heating, material, max_weight, owner, ):
+    def __init__(self, length_to_wheel, heating, material, max_weight, owner, design_chair_set={"Classic", "Vintage"}):
         self.length_to_wheel = length_to_wheel
         self.heating = heating
         super().__init__(material, max_weight, owner)
         self.material = material
         self.max_weight = max_weight
         self.owner = owner
-
-    design_chair_set = {"Classic", "Vintage"}
+        self.design_chair_set = design_chair_set
 
     def __repr__(self):
         parent_repr = super().__repr__()
@@ -49,6 +48,3 @@ class CarChair(Chair,):
         """
         length_to_wheel += self.POSITION_OFFSET
         return length_to_wheel
-    
-
-        

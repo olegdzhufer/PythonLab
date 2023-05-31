@@ -23,14 +23,13 @@ class DentalChair(Chair):
        """
     POSITION_OFFSET: Final[int] = 11
 
-    def __init__(self, angle_chair, material, max_weight, owner):
+    def __init__(self, angle_chair, material, max_weight, owner, design_chair_set={"Modern", "Plastic"}):
         self.angle_chair = angle_chair
         super().__init__(material, max_weight, owner)
         self.material = material
         self.max_weight = max_weight
         self.owner = owner
-
-    design_chair_set = {"Modern", "Plastic"}
+        self.design_chair_set = design_chair_set
 
     def __repr__(self):
         parent_repr = super().__repr__()
@@ -48,6 +47,3 @@ class DentalChair(Chair):
         """
         angle_chair += self.POSITION_OFFSET
         return angle_chair
-
-
-

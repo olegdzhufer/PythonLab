@@ -1,6 +1,6 @@
 from manager.set_manager import SetManager
 from model.car_chair import CarChair
-from model.chair import ChairException
+from exception.max_of_angle_chair import MaxOfAngleChair
 from model.dental_chair import DentalChair
 from model.feeding_chair import FeedingChair
 from model.office_chair import OfficeChair

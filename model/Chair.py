@@ -1,14 +1,6 @@
 """Module that contains abstract chair class"""
 from abc import ABC, abstractmethod
 
-
-class MaxOfAngleChair(Exception):
-    """Exception raised when the chair reached is max angle of chair"""
-    def __init__(self, message):
-        self.message = message
-        super().__init__(self.message)
-
-
 class Chair(ABC):
     """
        Abstract base class representing a chair.

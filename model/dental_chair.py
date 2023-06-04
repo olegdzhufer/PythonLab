@@ -1,7 +1,8 @@
 from typing import Final
 
 from decorator.logging import logged
-from model.chair import Chair, ChairException
+from model.chair import Chair
+from exception.max_of_angle_chair import MaxOfAngleChair
 
 
 class DentalChair(Chair):
@@ -37,7 +38,7 @@ class DentalChair(Chair):
         parent_repr = super().__repr__()
         return parent_repr + f"{self.angle_chair}"
 
-    @logged(ChairException, mode = "file.txt")
+    @logged(MaxOfAngleChair, mode="file.txt")
     def adjust_position(self, angle_chair):
         """
         Adjusts the position of the chair by increasing the angle.
@@ -49,8 +50,7 @@ class DentalChair(Chair):
                    float: The adjusted angle of the chair.
         """
         if self.angle_chair > 180:
-            raise ChairException("Angle already max")
+            raise MaxOfAngleChair("Angle already max")
         else:
             angle_chair += self.POSITION_OFFSET
         return angle_chair
-

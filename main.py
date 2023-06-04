@@ -1,5 +1,6 @@
 from manager.set_manager import SetManager
 from model.car_chair import CarChair
+from model.chair import ChairException
 from model.dental_chair import DentalChair
 from model.feeding_chair import FeedingChair
 from model.office_chair import OfficeChair
@@ -19,39 +20,42 @@ if __name__ == "__main__":
     for chair in chair_manager.chairs:
         print(chair)
 
-    print("\nFILTERED BY MAX_WEIGHT")
+print("\nFILTERED BY MAX_WEIGHT")
 
-    filtered_chairs = chair_manager.find_chair_which_max_weight_more_than(120)
-    for chair in filtered_chairs:
-        print(chair)
+srd = DentalChair(190, "velor", 170, "Ostap")
+srd.adjust_position(200)
 
-    print("\nFILTERED BY NAME")
+filtered_chairs = chair_manager.find_chair_which_max_weight_more_than(120)
+for chair in filtered_chairs:
+    print(chair)
 
-    filtered_chairs = chair_manager.find_chair_by_name("Oleh")
-    for chair in filtered_chairs:
-        print(chair)
+print("\nFILTERED BY NAME")
 
-    print("\nlist_comprehension")
+filtered_chairs = chair_manager.find_chair_by_name("Oleh")
+for chair in filtered_chairs:
+    print(chair)
 
-    print(chair_manager.get_increase_height())
+print("\nlist_comprehension")
 
-    print("\nenumerate")
-    print(chair_manager.get_list_enumerated())
+print(chair_manager.get_increase_height())
 
-    print("\nzip")
-    print(chair_manager.get_zipping())
+print("\nenumerate")
+print(chair_manager.get_list_enumerated())
 
-    print("\nCondition dictionary")
-    print(chair_manager.get_all_any(100))
+print("\nzip")
+print(chair_manager.get_zipping())
 
-    print("\nget_dictionary")
+print("\nCondition dictionary")
+print(chair_manager.get_all_any(100))
 
-    chair_manager1 = CarChair(12, True, "saddd" , 123, "asd")
-    print(chair_manager1.get_dict_comprehension(bool))
+print("\nget_dictionary")
 
-    sm = SetManager(chair_manager)
-    print(len(sm))
+chair_manager1 = CarChair(12, True, "saddd", 123, "asd")
+print(chair_manager1.get_dict_comprehension(bool))
 
-    sm = SetManager(chair_manager)
-    for item in sm:
-        print(item)
+sm = SetManager(chair_manager)
+print(len(sm))
+
+sm = SetManager(chair_manager)
+for item in sm:
+    print(item)

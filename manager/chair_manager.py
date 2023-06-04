@@ -79,7 +79,7 @@ class ChairManager:
 
     def get_zipping(self):
         records = [(f"Object: {chair}", f"-> result: {result}") for chair, result in
-                   zip(self.chairs, self.list_comprehension())]
+                   zip(self.chairs, self.get_increase_height())]
         return records
 
     def get_all_any(self, current_weght):

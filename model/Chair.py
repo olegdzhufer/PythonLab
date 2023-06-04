@@ -2,6 +2,13 @@
 from abc import ABC, abstractmethod
 
 
+class MaxOfAngleChair(Exception):
+    """Exception raised when the chair reached is max angle of chair"""
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+
 class Chair(ABC):
     """
        Abstract base class representing a chair.
@@ -27,7 +34,6 @@ class Chair(ABC):
         self.owner = owner
         self.design_chair_set = set()
 
-
     def __repr__(self):
         return f"{self.material}, {self.max_weight}, {self.owner}"
 
@@ -40,7 +46,6 @@ class Chair(ABC):
             value: The value used for adjusting the position of the chair.
             """
         pass
-
 
     def get_dict_comprehension(self, data_type):
         field_dict = {}

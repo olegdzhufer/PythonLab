@@ -1,3 +1,4 @@
+"""Module that contains class of car chair"""
 from typing import Final
 
 from model.chair import Chair
@@ -23,7 +24,10 @@ class CarChair(Chair, ):
 """
     POSITION_OFFSET: Final[int] = 5
 
-    def __init__(self, length_to_wheel, heating, material, max_weight, owner, design_chair_set={"Classic", "Vintage"}):
+    def __init__(self, length_to_wheel, heating, material, max_weight,
+                 owner, design_chair_set=None):
+        if design_chair_set is None:
+            design_chair_set = {"Classic", "Vintage"}
         self.length_to_wheel = length_to_wheel
         self.heating = heating
         super().__init__(material, max_weight, owner)

@@ -1,4 +1,5 @@
 from typing import Final
+
 from model.chair import Chair
 
 
@@ -26,7 +27,9 @@ class FeedingChair(Chair):
     POSITION_OFFSET: Final[int] = 100
 
     def __init__(self, min_height, max_height, age_designed_for, material, max_weight, owner,
-                 design_chair_set={"Simple", "Contemporary"}):
+                 design_chair_set=None):
+        if design_chair_set is None:
+            design_chair_set = {"Simple", "Contemporary"}
         self.min_height = min_height
         self.max_height = max_height
         self.age_designed_for = age_designed_for

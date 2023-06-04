@@ -1,4 +1,7 @@
+"""Module that contains class of dental chair"""
 from typing import Final
+
+
 
 from decorator.logging import logged
 from model.chair import Chair
@@ -26,7 +29,10 @@ class DentalChair(Chair):
        """
     POSITION_OFFSET: Final[int] = 11
 
-    def __init__(self, angle_chair, material, max_weight, owner, design_chair_set={"Modern", "Plastic"}):
+    def __init__(self, angle_chair, material, max_weight, owner,
+                 design_chair_set=None):
+        if design_chair_set is None:
+            design_chair_set = {"Modern", "Plastic"}
         self.angle_chair = angle_chair
         super().__init__(material, max_weight, owner)
         self.material = material

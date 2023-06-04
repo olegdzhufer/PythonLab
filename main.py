@@ -20,42 +20,42 @@ if __name__ == "__main__":
     for chair in chair_manager.chairs:
         print(chair)
 
-print("\nFILTERED BY MAX_WEIGHT")
+    print("\nFILTERED BY MAX_WEIGHT")
 
-srd = DentalChair(190, "velor", 170, "Ostap")
-srd.adjust_position(200)
+    srd = DentalChair(190, "velor", 170, "Ostap")
+    srd.adjust_position(200)
 
-filtered_chairs = chair_manager.find_chair_which_max_weight_more_than(120)
-for chair in filtered_chairs:
-    print(chair)
+    filtered_chairs = chair_manager.find_chair_which_max_weight_more_than(120)
+    for chair in filtered_chairs:
+        print(chair)
 
-print("\nFILTERED BY NAME")
+    print("\nFILTERED BY NAME")
 
-filtered_chairs = chair_manager.find_chair_by_name("Oleh")
-for chair in filtered_chairs:
-    print(chair)
+    filtered_chairs = chair_manager.find_chair_by_name("Oleh")
+    for chair in filtered_chairs:
+        print(chair)
 
-print("\nlist_comprehension")
+    print("\nlist_comprehension")
 
-print(chair_manager.get_increase_height())
+    print(chair_manager.get_increase_height())
 
-print("\nenumerate")
-print(chair_manager.get_list_enumerated())
+    print("\nenumerate")
+    print(chair_manager.get_list_enumerated())
 
-print("\nzip")
-print(chair_manager.get_zipping())
+    print("\nzip")
+    print(chair_manager.get_zipping())
 
-print("\nCondition dictionary")
-print(chair_manager.get_all_any(100))
+    print("\nCondition dictionary")
+    print(chair_manager.get_all_any(100))
 
-print("\nget_dictionary")
+    print("\nget_dictionary")
 
-chair_manager1 = CarChair(12, True, "saddd", 123, "asd")
-print(chair_manager1.get_dict_comprehension(bool))
+    chair_manager1 = CarChair(12, True, "saddd", 123, "asd")
+    print(chair_manager1.get_dict_comprehension(bool))
 
-sm = SetManager(chair_manager)
-print(len(sm))
+    sm = SetManager(chair_manager)
+    print(len(sm))
 
-sm = SetManager(chair_manager)
-for item in sm:
-    print(item)
+    sm = SetManager(chair_manager)
+    for item in sm:
+        print(item)

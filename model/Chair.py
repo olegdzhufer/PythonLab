@@ -1,6 +1,7 @@
 """Module that contains abstract chair class"""
 from abc import ABC, abstractmethod
 
+
 class Chair(ABC):
     """
        Abstract base class representing a chair.
@@ -37,13 +38,20 @@ class Chair(ABC):
         Parameters:
             value: The value used for adjusting the position of the chair.
             """
-        pass
 
     def get_dict_comprehension(self, data_type):
+        """
+        Get a dictionary that represents whether each attribute in the
+        object is an instance of the specified data type.
+
+        :param data_type: The data type to check against.
+        :return: A dictionary where the keys are the
+        attribute names and the values are booleans indicating whether
+                 the attribute is an instance of the specified data type.
+        """
         field_dict = {}
         for attr_name, attr_value in self.__dict__.items():
             field_dict[attr_name] = isinstance(attr_value, data_type)
         return field_dict
-
     def __iter__(self):
         return iter(self.design_chair_set)

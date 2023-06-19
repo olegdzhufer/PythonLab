@@ -1,4 +1,7 @@
 from typing import Final
+
+
+
 from model.chair import Chair
 
 
@@ -25,7 +28,9 @@ class OfficeChair(Chair):
     POSITION_OFFSET: Final[int] = 8
 
     def __init__(self, back_angle, material_upholstary, material, max_weight, owner,
-                 design_chair_set={"Elegant", "Industrial"}):
+                 design_chair_set=None):
+        if design_chair_set is None:
+            design_chair_set = {"Elegant", "Industrial"}
         self.back_angle = back_angle
         self.material_upholstary = material_upholstary
         super().__init__(material, max_weight, owner)
@@ -36,7 +41,6 @@ class OfficeChair(Chair):
 
     def __repr__(self):
         return f"{super().__repr__()}, {self.back_angle, self.material_upholstary}"
-
     def adjust_position(self, angle):
         """
                Adjusts the position of the chair by increasing the angle.

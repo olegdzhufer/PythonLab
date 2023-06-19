@@ -1,5 +1,11 @@
+"""Module that contains class of dental chair"""
 from typing import Final
+
+
+
+from decorator.logging import logged
 from model.chair import Chair
+from exception.max_of_angle_chair import MaxOfAngleChair
 
 
 class DentalChair(Chair):
@@ -23,7 +29,10 @@ class DentalChair(Chair):
        """
     POSITION_OFFSET: Final[int] = 11
 
-    def __init__(self, angle_chair, material, max_weight, owner, design_chair_set={"Modern", "Plastic"}):
+    def __init__(self, angle_chair, material, max_weight, owner,
+                 design_chair_set=None):
+        if design_chair_set is None:
+            design_chair_set = {"Modern", "Plastic"}
         self.angle_chair = angle_chair
         super().__init__(material, max_weight, owner)
         self.material = material
@@ -35,6 +44,7 @@ class DentalChair(Chair):
         parent_repr = super().__repr__()
         return parent_repr + f"{self.angle_chair}"
 
+    @logged(MaxOfAngleChair, mode="file.txt")
     def adjust_position(self, angle_chair):
         """
         Adjusts the position of the chair by increasing the angle.
@@ -45,5 +55,8 @@ class DentalChair(Chair):
                Returns:
                    float: The adjusted angle of the chair.
         """
-        angle_chair += self.POSITION_OFFSET
+        if self.angle_chair > 180:
+            raise MaxOfAngleChair("Angle already max")
+        else:
+            angle_chair += self.POSITION_OFFSET
         return angle_chair

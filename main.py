@@ -1,5 +1,6 @@
 from manager.set_manager import SetManager
 from model.car_chair import CarChair
+from exception.max_of_angle_chair import MaxOfAngleChair
 from model.dental_chair import DentalChair
 from model.feeding_chair import FeedingChair
 from model.office_chair import OfficeChair
@@ -20,6 +21,9 @@ if __name__ == "__main__":
         print(chair)
 
     print("\nFILTERED BY MAX_WEIGHT")
+
+    srd = DentalChair(190, "velor", 170, "Ostap")
+    srd.adjust_position(200)
 
     filtered_chairs = chair_manager.find_chair_which_max_weight_more_than(120)
     for chair in filtered_chairs:
@@ -46,7 +50,7 @@ if __name__ == "__main__":
 
     print("\nget_dictionary")
 
-    chair_manager1 = CarChair(12, True, "saddd" , 123, "asd")
+    chair_manager1 = CarChair(12, True, "saddd", 123, "asd")
     print(chair_manager1.get_dict_comprehension(bool))
 
     sm = SetManager(chair_manager)
